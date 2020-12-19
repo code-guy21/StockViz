@@ -3,8 +3,8 @@
 
 .navbar {
 	min-width: 100%;
-	background-color: rgba($color-black, 1);
-	box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+	//box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+	text-transform: uppercase;
 }
 
 .nav {
@@ -17,17 +17,19 @@
 		color: $color-primary-green;
 	}
 
-	&__login:link,
-	&__login:visited {
+	&__item:link,
+	&__item:visited {
 		text-decoration: none;
 		background-color: none;
 		border-radius: 0.5rem;
-		font-size: 2rem;
+		font-size: 1.8rem;
 		padding: 1rem 2rem;
 		color: $color-white;
+		text-transform: uppercase;
+		transition: 0.4s all;
 	}
 
-	&__login:hover {
+	&__item:hover {
 		color: $color-primary-green;
 	}
 }
