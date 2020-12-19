@@ -1,0 +1,33 @@
+@import '../../sass/abstracts/variables';
+@import '../../sass/components/container';
+
+.navbar {
+	min-width: 100%;
+	background-color: rgba($color-black, 1);
+	box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__brand {
+		font-size: 3rem;
+		color: $color-primary-green;
+	}
+
+	&__login:link,
+	&__login:visited {
+		text-decoration: none;
+		background-color: none;
+		border-radius: 0.5rem;
+		font-size: 2rem;
+		padding: 1rem 2rem;
+		color: $color-white;
+	}
+
+	&__login:hover {
+		color: $color-primary-green;
+	}
+}

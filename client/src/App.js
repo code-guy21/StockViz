@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
-	useEffect(() => {
-		axios.get('/api').then(res => {
-			console.log(res.data);
-		});
-	});
-
-	return <div>App</div>;
+	return (
+		<>
+			<NavBar />
+		</>
+	);
 };
 
 export default App;
