@@ -11,7 +11,7 @@ const SearchPage = () => {
 		<main className='container searchpage'>
 			<div className='heading-primary'>Search for Stocks</div>
 			<SearchBar />
-			<StockList stockList={stockList} />
+			<StockList action='add' stockList={stockList} />
 		</main>
 	);
 };

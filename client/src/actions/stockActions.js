@@ -5,6 +5,7 @@ import {
 	SAVED_STOCK_ADD,
 	SAVED_STOCK_REMOVE,
 	SAVED_STOCK_FAIL,
+	SAVED_STOCK_LOAD,
 } from '../constants/stockConstants';
 import API from '../utils/API';
 
@@ -19,6 +20,25 @@ export const searchStocks = query => async dispatch => {
 		dispatch({
 			type: STOCK_LIST_SUCCESS,
 			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: STOCK_LIST_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const loadStocks = () => async dispatch => {
+	try {
+		const stocks = await JSON.parse(localStorage.getItem('saved'));
+
+		dispatch({
+			type: SAVED_STOCK_LOAD,
+			payload: stocks ? stocks.stocks : [],
 		});
 	} catch (error) {
 		dispatch({

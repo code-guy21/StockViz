@@ -1,15 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { saveStock } from '../../actions/stockActions';
 import './Stock.scss';
 
-const Stock = ({ stock }) => {
-	const dispatch = useDispatch();
-
-	const addStock = async stock => {
-		dispatch(saveStock(stock));
-	};
-
+const Stock = ({ stock, action, method }) => {
 	return (
 		<div className='stock'>
 			<div className='stock__symbol'>{stock.symbol}</div>
@@ -25,7 +17,11 @@ const Stock = ({ stock }) => {
 				</p>
 			</div>
 			<div className='stock__options'>
-				<i onClick={() => addStock(stock)} className='far fa-plus-circle'></i>
+				<i
+					onClick={() => method()}
+					className={
+						action === 'add' ? 'far fa-plus-circle' : 'far fa-trash-alt'
+					}></i>
 			</div>
 		</div>
 	);

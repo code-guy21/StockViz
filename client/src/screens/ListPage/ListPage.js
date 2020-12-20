@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import StockList from '../../components/StockList/StockList';
+import { loadStocks } from '../../actions/stockActions';
 import './ListPage.scss';
 
 const ListPage = () => {
-	const [saved, setSaved] = useState([]);
+	const dispatch = useDispatch();
+	const saved = useSelector(state => state.savedStocks);
 
 	useEffect(() => {
-		setSaved(JSON.parse(localStorage.getItem('saved')));
+		dispatch(loadStocks());
 	}, []);
 
 	return (
 		<main className='container searchpage'>
 			<div className='heading-primary'>Your Saved Stocks</div>
-			<StockList stockList={saved} />
+			<StockList action='remove' stockList={saved} />
 		</main>
 	);
 };

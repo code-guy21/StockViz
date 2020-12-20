@@ -1,0 +1,9 @@
+@import '../../sass/components/container';
+@import '../../sass/typography/typography';
+
+.searchpage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 4rem;
+}
