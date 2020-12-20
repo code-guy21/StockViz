@@ -1,12 +1,22 @@
 @import '../../sass/abstracts/variables';
+@import '../../sass/components/btn';
+
+.searchform {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 .searchbox {
-	width: 60%;
-	padding: 1rem 8rem;
-	border-radius: 3rem;
+	width: 100%;
+	padding: 1rem 2rem;
+	border-radius: 0.7rem;
 	border: 2px solid rgba($color-black, 0.5);
 	transition: 0.2s all;
-	font-size: 2rem;
+	font-size: 1.7rem;
+	text-transform: uppercase;
+	margin-bottom: 1.8rem;
 
 	&::placeholder {
 		color: rgba(156, 156, 156, 0.8);

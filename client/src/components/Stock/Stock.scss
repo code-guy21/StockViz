@@ -1,0 +1,27 @@
+@import '../../sass/abstracts/variables';
+
+.stock {
+	background-color: $color-primary-green;
+	margin: 1rem;
+	border-radius: 2rem;
+	display: flex;
+	align-items: center;
+
+	&__symbol {
+		padding: 5rem;
+		font-size: 2rem;
+		border-right: 2px solid black;
+		width: 30%;
+		text-align: center;
+	}
+
+	&__data {
+		padding: 2rem 3rem;
+		font-size: 1.5rem;
+		width: 70%;
+
+		p {
+			margin-bottom: 0.5rem;
+		}
+	}
+}

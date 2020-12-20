@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
+const routes = require('./routes');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 dotenv.config();
 
@@ -15,13 +17,10 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
 
-app.get('/api', (req, res) => {
-	res.json('StockViz API');
-});
+app.use(routes);
 
-app.use(function (req, res) {
-	res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
 	console.log(

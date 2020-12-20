@@ -1,0 +1,24 @@
+@import '../abstracts/variables';
+
+.btn {
+	color: $color-black;
+	background-color: $color-primary-green;
+	padding: 0.8rem 3rem;
+	border-radius: 3rem;
+	font-size: 1.8rem;
+	transition: 0.3s all;
+	border: none;
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover {
+		transform: translateY(-0.1rem);
+	}
+
+	&:active {
+		transform: translateY(0.1rem);
+		box-shadow: none;
+	}
+}
