@@ -1,27 +1,56 @@
 @import '../../sass/abstracts/variables';
+@import '../../sass/base/animations';
 
 .stock {
-	background-color: $color-primary-green;
+	color: $color-white;
+	background-color: rgba($color-black, 0.4);
 	margin: 1rem;
 	border-radius: 2rem;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+	animation-name: moveInBottom;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
 
 	&__symbol {
-		padding: 5rem;
+		padding: 2rem 10rem;
+		width: 100%;
 		font-size: 2rem;
-		border-right: 2px solid black;
-		width: 30%;
+		border-bottom: 2px solid $color-white;
 		text-align: center;
+		color: $color-primary-green;
 	}
 
 	&__data {
-		padding: 2rem 3rem;
+		padding: 4rem 0rem;
 		font-size: 1.5rem;
 		width: 70%;
+		color: $color-white;
 
 		p {
 			margin-bottom: 0.5rem;
+		}
+
+		span {
+			color: $color-primary-green;
+		}
+	}
+
+	&__options {
+		border-top: 2px solid $color-white;
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+		padding: 1rem 0rem;
+
+		i {
+			font-size: 3rem;
+			transition: 0.8s all;
+			&:hover {
+				color: $color-primary-green;
+			}
 		}
 	}
 }

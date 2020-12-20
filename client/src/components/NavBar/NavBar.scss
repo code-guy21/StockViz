@@ -1,5 +1,6 @@
 @import '../../sass/abstracts/variables';
 @import '../../sass/components/container';
+@import '../../sass/base/animations';
 
 .navbar {
 	min-width: 100%;
@@ -10,7 +11,7 @@
 .nav {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
 
 	&__brand {
 		font-size: 3rem;
@@ -31,5 +32,40 @@
 
 	&__item:hover {
 		color: $color-primary-green;
+	}
+}
+
+.fal {
+	font-size: 3rem;
+	color: $color-white;
+	display: none;
+}
+
+#nav_hidden {
+	flex-direction: column;
+	display: flex;
+	background-color: rgba($color-black, 0.4);
+	animation-name: fadeIn;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+}
+
+.visible {
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+	.navigation {
+		display: none;
+	}
+
+	.fal {
+		display: initial;
+	}
+}
+
+@media (min-width: 768px) {
+	#nav_hidden {
+		display: none !important;
 	}
 }

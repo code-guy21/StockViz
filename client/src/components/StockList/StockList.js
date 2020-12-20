@@ -6,8 +6,8 @@ const StockList = ({ stockList }) => {
 	console.log(stockList);
 	return (
 		<section className='stocklist'>
-			{stockList.stocks.map(stock => {
-				return <Stock stock={stock} />;
+			{stockList.stocks.map((stock, i) => {
+				return <Stock key={i} stock={stock} />;
 			})}
 		</section>
 	);
