@@ -25,11 +25,8 @@ const StockList = ({ stockList, action }) => {
 							key={i}
 							stock={stock}
 							action={action}
-							method={
-								action === 'add'
-									? () => addStock(stock)
-									: () => deleteStock(stock.symbol)
-							}
+							add={() => addStock(stock)}
+							remove={() => deleteStock(stock.symbol)}
 						/>
 					);
 				})}

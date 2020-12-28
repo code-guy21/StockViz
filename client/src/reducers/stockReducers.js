@@ -22,19 +22,31 @@ export const stockListReducer = (state = { stocks: [] }, action) => {
 };
 
 export const savedStockReducer = (state = { stocks: [] }, action) => {
+	let updated;
 	switch (action.type) {
 		case SAVED_STOCK_ADD:
-			if (!state.stocks.find(stock => stock.symbol === action.payload.symbol)) {
-				let updated = {
-					stocks: [...state.stocks, action.payload],
+			if (
+				!state.stocks.find(
+					stock => stock.symbol === action.payload.stock.symbol
+				)
+			) {
+				updated = {
+					stocks: [...state.stocks, action.payload.stock],
 				};
-				localStorage.setItem('saved', JSON.stringify(updated));
-				return updated;
 			} else {
-				return state;
+				updated = {
+					stocks: [
+						action.payload.stock,
+						...state.stocks.filter(
+							stock => stock.symbol !== action.payload.stock.symbol
+						),
+					],
+				};
 			}
+			localStorage.setItem('saved', JSON.stringify(updated));
+			return updated;
 		case SAVED_STOCK_REMOVE:
-			let updated = {
+			updated = {
 				stocks: [
 					...state.stocks.filter(stock => stock.symbol !== action.payload),
 				],
@@ -46,7 +58,11 @@ export const savedStockReducer = (state = { stocks: [] }, action) => {
 				stocks: action.payload,
 			};
 		case SAVED_STOCK_FAIL:
-			return { error: action.payload };
+			updated = {
+				stocks: [...state.stocks, action.payload.stock],
+			};
+			localStorage.setItem('saved', JSON.stringify(updated));
+			return updated;
 
 		default:
 			return state;

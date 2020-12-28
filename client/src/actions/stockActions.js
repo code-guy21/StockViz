@@ -53,17 +53,24 @@ export const loadStocks = () => async dispatch => {
 
 export const saveStock = stock => async dispatch => {
 	try {
+		const { data } = await API.intraDay(stock.symbol);
+
 		dispatch({
 			type: SAVED_STOCK_ADD,
-			payload: stock,
+			payload: { stock: { ...stock, ...data.data[0] } },
 		});
 	} catch (error) {
 		dispatch({
 			type: SAVED_STOCK_FAIL,
-			payload:
-				error.response && error.response.data.message
-					? error.response.data.message
-					: error.message,
+			payload: {
+				stock: {
+					...stock,
+					error:
+						error.response && error.response.data.message
+							? error.response.data.message
+							: error.message,
+				},
+			},
 		});
 	}
 };
